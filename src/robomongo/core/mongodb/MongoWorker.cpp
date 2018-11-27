@@ -237,8 +237,8 @@ namespace Robomongo
 
             // If we do not have databases, it means that we are unable to
             // execute "listdatabases" command and we have nothing to show.
-            if (dbNames.size() == 0)
-                throw mongo::DBException("Failed to execute \"listdatabases\" command.", 0);
+            // if (dbNames.size() == 0)
+            //     throw mongo::DBException("Failed to execute \"listdatabases\" command.", 0);
 
             if (!_connSettings->isReplicaSet())
                 init(); // Init MongoWorker for single server (for replica set connections early init is used)
@@ -885,8 +885,8 @@ namespace Robomongo
             if (event->dbVersion() >= 3.4) {
                 auto const cmd = "db.system.js.save(" + event->function().toBson().toString() + ')';
                 MongoShellExecResult const& result = _scriptEngine->exec(cmd, event->database());
-                if (result.error())
-                    throw mongo::DBException(result.errorMessage(), 0);
+                // if (result.error())
+                //     throw mongo::DBException(result.errorMessage(), 0);
             }
             else {
                 boost::scoped_ptr<MongoClient> client(getClient());
@@ -916,8 +916,8 @@ namespace Robomongo
             if (event->dbVersion() >= 3.4) {
                 auto const cmd = "db.system.js.remove( { _id : \"" + event->functionName() + "\" } )";
                 MongoShellExecResult const& result = _scriptEngine->exec(cmd, event->database());
-                if (result.error())
-                    throw mongo::DBException(result.errorMessage(), 0);
+                // if (result.error())
+                //     throw mongo::DBException(result.errorMessage(), 0);
             }
             else {
                 boost::scoped_ptr<MongoClient> client(getClient());

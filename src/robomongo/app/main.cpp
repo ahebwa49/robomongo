@@ -6,7 +6,7 @@
 // Header "mongo/util/net/sock" is needed for mongo::enableIPv6()
 // Header "mongo/platform/basic" is required by "sock.h" under Windows
 #include <mongo/platform/basic.h>
-#include <mongo/util/net/sock.h>
+#include <mongo/util/net/socket_utils.h>
 #include <mongo/base/initializer.h>
 #include <mongo/util/net/ssl_options.h>
 
